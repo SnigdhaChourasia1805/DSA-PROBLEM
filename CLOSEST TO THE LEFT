@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define int long long
+ 
+int getMaxIndexOfElementNotGreaterThan(vector<int>&A, int target){
+    int start=0;
+    int end=A.size()-1;
+        int mid;
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            if(A[mid]<target)
+                end=mid+1;
+            
+            else
+                start=mid-1;
+            
+            return -1;
+              }      
+            
+};
+
+void solve(){
+	int n,k,a;
+	cin>>n>>k;
+	vector<int>A(n);
+	for(int i=0;i<n;i++){
+		cin>>A[i];
+	}
+	while(k--){
+		cout<<getMaxIndexOfElementNotGreaterThan(A,a)+1<<"\n";
+	}
+}
+ 
+signed main() {
+	solve();
+	return 0;
+}
