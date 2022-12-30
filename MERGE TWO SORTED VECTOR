@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int>merge(vector<int>a,vector<int>b)
+{
+   vector<int>ans;
+        int i=0;
+        int j=0;
+        while(i<a.size()&&j<b.size())
+        {
+            int y=min(a[i],b[j]);
+            ans.push_back(y);
+            if(y==a[i])
+           { i++;}
+            else
+            { j++;}
+        }  
+        return ans;
+};
+void printVector(vector<int>A)
+{
+    for(int i=0;i<A.size();i++)
+{
+    cout<<A[i]<<" ";
+}
+    cout<<"\n";
+}
+void sort(vector<int>&A)
+{
+    if(A.size()==1)return;
+    vector<int>a;
+    vector<int>b;
+    for(int i=0;i<A.size();i++)
+{
+    if(2*i<=A.size())
+    {a.emplace_back(A[i]);}
+    else
+   { b.emplace_back(A[i]);}
+}
+sort(a.begin(),a.end());
+sort(b.begin(),b.end());
+A=merge(a,b);
+}
+int main() {
+    vector<int>A= {6,1,2,3,4,6,1};
+    sort(A);
+    cout<<"sorted vector: ";
+    printVector(A);
+    return 0;
+}
