@@ -23,7 +23,7 @@ void sort(vector<int>&A)
 {
 	//write the code for count sort
 	sort(A.begin(), A.end());
-	for(unsigned int i = 0; i != A.size(); ++i)
+	for(int i = 0; i != A.size(); ++i)
 {
     if(A[i] == A[i + 1])
     cout<<A[i]<<endl;
