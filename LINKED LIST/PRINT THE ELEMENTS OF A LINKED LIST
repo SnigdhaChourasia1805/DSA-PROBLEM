@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class createLinkedListNode {
+    public:
+        int data;
+        createLinkedListNode *next;
+
+        createLinkedListNode(int node_data) {
+            this->data = node_data;
+            this->next = nullptr;
+        }
+};
+
+class createLinkedList {
+    public:
+        createLinkedListNode *head;
+        createLinkedListNode *tail;
+
+        createLinkedList() {
+            this->head = nullptr;
+            this->tail = nullptr;
+        }
+
+        void insert_node(int node_data) {
+            createLinkedListNode* node = new createLinkedListNode(node_data);
+
+            if (!this->head) {
+                this->head = node;
+            } else {
+                this->tail->next = node;
+            }
+
+            this->tail = node;
+        }
+};
+
+
+
+
+void printLinkedList(createLinkedListNode* head) {
+while(head!=nullptr){
+    cout<<head->data<<endl;
+    head=head->next;
+}
+}
+
+int main()
+{
+    createLinkedList* a = new createLinkedList();
+
+    int n;
+    cin >> n;
+
+    for (int i = 0; i<n; i++) {
+        int a_item;
+        cin >> a_item;
+
+        a->insert_node(a_item);
+    }
+    cout<<"Printing list:";
+
+    printLinkedList(a->head);
+
+    return 0;
+}
